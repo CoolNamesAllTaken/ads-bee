@@ -1,3 +1,5 @@
+#include "MlatTime.h"
+#include "SysTickTimeSource.h"
 #include "ads_bee.hh"
 #include "adsb_packet.hh"
 #include "comms.hh"
@@ -20,6 +22,11 @@ SettingsManager settings_manager;
 
 int main() {
     bi_decl(bi_program_description("ADS-Bee ADSB Receiver"));
+
+    // test code
+    auto timeSource = adsbee::time::SysTimeTimeSourceFactory::create(true);
+    auto timer = adsbee::time::MlatTime(timeSource);
+    // end test code
 
     ads_bee.Init();
     eeprom.Init();

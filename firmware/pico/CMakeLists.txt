@@ -71,6 +71,7 @@ if (NOT CMAKE_BUILD_TYPE STREQUAL "Test")
     pico_enable_stdio_usb(${PROJECT_NAME} 1) # use USB for standard printing
     pico_enable_stdio_uart(${PROJECT_NAME} 0) # disable STDIO UART
     
+    set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 else()
     ## Building for unit tests on host.
